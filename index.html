@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dino</title>
+</head>
+<body onclick="jump()">
+    <div class="screen">
+        <div class="game-container">
+            <div class="score-card">
+                <span>HI-SCORE:</span> 
+                <span class="high-score"></span><br>
+                <span>SCORE:</span>           
+                <span class="score"></span>
+            </div>
+            <div class="player"></div>
+            <div class="obstacle"></div>
+            <div class="restart-game">
+                <div class="content">
+                    <span class="text">RESTART</span>
+                    <button onclick="restart()" class="btn-reset-game"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

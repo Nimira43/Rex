@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Akronim&family=Architects+Daughter&family=Bangers&family=Black+Ops+One&family=Bruno+Ace+SC&family=Bungee+Spice&family=Cabin+Sketch&family=Caveat&family=Creepster&family=Dancing+Script&family=East+Sea+Dokdo&family=Eater&family=Ewert&family=Fredericka+the+Great&family=Great+Vibes&family=Henny+Penny&family=Homemade+Apple&family=Instrument+Serif&family=Italianno&family=Jacques+Francois+Shadow&family=Kristi&family=Libre+Barcode+39+Text&family=Liu+Jian+Mao+Cao&family=Londrina+Outline&family=Love+Ya+Like+A+Sister&family=Loved+by+the+King&family=MedievalSharp&family=Monoton&family=Monsieur+La+Doulaise&family=Mountains+of+Christmas&family=Nabla&family=Nanum+Gothic&family=Nunito+Sans&family=Orbitron&family=Pirata+One&family=Press+Start+2P&family=Rajdhani&family=Rampart+One&family=Rubik+80s+Fade&family=Rubik+Burned&family=Rubik+Iso&family=Rubik+Maze&family=Rubik+Microbe&family=Rubik+Moonrocks&family=Rubik+Pixels&family=Rubik+Puddles&family=Rubik+Storm&family=Rubik+Vinyl&family=Rye&family=Sacramento&family=Satisfy&family=Shadows+Into+Light&family=Slackey&family=Tilt+Prism&family=UnifrakturMaguntia&family=Yanone+Kaffeesatz&display=swap');
+
+* {
+    font-family: 'Nabla', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.screen {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(
+        223deg,
+        darkred,
+        black
+    );
+    overflow: hidden;
+}
+
+.game-container {
+    width: 1000px;
+    height: 450px;
+    margin: 100px auto;
+    border: 3px solid goldenrod;
+    position: relative;
+    background-image: url('./Source/assets/sky.png');
+    background-size: contain;
+    overflow: hidden;
+    animation: bg-move 30s linear infinite;
+}
+
+@keyframes bg-move {
+    0% {
+        background-position: 100%;
+    }
+
+    100% {
+        background-position: -50%;
+    }
+}
+
+.player {
+    width: 160px;
+    height: 86px;
+    /* border: 1px solid blue; */
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    background-image: url('./Source/assets/dino.gif');
+    background-size: cover;
+    background-position: bottom;
+}
+
+.player.jump {
+    animation: jump 1.5s infinite;
+    background-image: url('./Source/assets/dino.png');
+    
+}
+
+@keyframes jump {
+    0% {
+        bottom: 0;
+    }
+
+    25% {
+        bottom: 250px;
+    }
+    
+    40% {
+        bottom: 250px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+.obstacle {
+    width: 60px;
+    height: 120px;
+    position: absolute;
+    bottom: 0;
+    left: 80%;
+    /* border: 1px solid red; */
+    animation: move 3s linear infinite;
+    background-image: url('./Source/assets/obstacle.png');
+    background-size: contain;
+}
+
+.obstacle-xs {
+    width: 30px;
+    height: 40px;
+}
+.obstacle-s {
+    width: 30px;
+    height: 80px;
+}
+.obstacle-m {
+    width: 30px;
+    height: 120px;
+}
+
+.obstacle-l {
+    width: 120px;
+    height: 160px;
+}
+
+@keyframes move {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: -100px;
+    }
+}
+
+.score-card {
+    color: 'gold';
+    font-size: 30px;
+    margin: 20px;
+    
+}
+
+.score-card span {
+    margin-right: 20px;
+}
+
+.restart-game {
+    visibility: hidden;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.7)),    
+        url('./Source/assets/Rex.jpg') no-repeat center center/cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    z-index: 2;
+}
+
+.restart-game.show {
+    visibility: visible;
+}
+
+.restart-game .content {
+    display: flex;
+}
+
+.restart-game .btn-reset-game {
+    border: 5px solid black;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-image: url('./Source/assets/pngimg.com\ -\ entry_PNG13.png');
+    background-size: contain;
+    border-radius: 50%;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.restart-game .text {
+    align-self: end;
+}
+
+.stop.game-container,
+.stop .obstacle {
+    animation-play-state: paused;
+}
+
+.stop .player {
+    background-image: url('./Source/assets/dino.png');
+}
